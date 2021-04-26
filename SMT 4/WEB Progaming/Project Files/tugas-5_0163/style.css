@@ -1,0 +1,97 @@
+* {
+	color: whitesmoke;
+}
+body {
+	background-color: #7da5d9;
+	font-family: Verdana, sans-serif;
+}
+div.container {
+	width: 35%;
+	padding: 10px 50px 80px;
+	margin: 7% auto;
+	border-radius: 50px;
+	background: #7da5d9;
+	color: whitesmoke;
+	box-shadow:  20px 20px 60px #6a8cb8,
+				-20px -20px 60px #90befa;
+}
+label{
+	margin-bottom: 5px;
+}
+.pass-label{
+	margin-top: 20px;
+}
+h1,h3 {
+	text-align: center;
+	font-family: Verdana, sans-serif;
+}
+.sub-head {
+	margin-top: -20px;
+}
+p {
+	margin:0;
+}
+fieldset {
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 25px;
+	width: auto;
+}
+
+input {
+    width: 100%;
+    border-radius: 5px;
+    border: 0;
+    height: 30px;
+    font-size: 16px;
+	color: #333;
+}
+
+input[type=submit] {
+	margin-top: 20px;
+	color: #333;
+	background-color: #678ab8;
+}
+
+input[type=submit]:hover {
+	background-color: rgb(142, 188, 248);
+}
+
+label {
+	width:80px;
+	float:left;
+	margin-right:10px;
+}
+.error {
+    background-color: lightcoral;
+    padding: 15px;
+    margin: 0 0 20px 0;
+    border-radius: 8px;
+	color: white;
+	letter-spacing: 0.7px;
+}
+
+table, th, td {
+    padding: 10px;
+    border: 1px solid #fff;
+    border-collapse: collapse;
+}
+.menu {
+	font-size: 12px;
+}
+.menu a {
+	text-decoration:none;
+}
+.menu a:hover {
+	color: dimgray;
+}
+table tr:hover {
+	background-color: rgb(170, 170, 170);
+}
+.container p {
+	text-align: center;
+}
+.container p span {
+	font-size: 22px;
+	font-weight: bolder;
+}

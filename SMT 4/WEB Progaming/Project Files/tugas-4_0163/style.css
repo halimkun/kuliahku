@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap');
+*, html, body {
+	font-family: 'Jost', sans-serif;
+	font-weight: 500;
+}
+.container {
+	padding: 3%;
+}
+input, textarea#komentar {
+    display: flex;
+    width: 100%;
+    resize: vertical;
+	padding: 3px 8px;
+    font-size: 15px;
+}
+fieldset{
+	padding-left: 3%;
+	padding-right: 5%;
+}
+fieldset legend {
+    border: 1px solid;
+    padding: 3px 20px;
+    border-radius: 150px;
+}
+button{
+	padding: 8px 15px;
+	background: teal;
+	border: 0px;
+	color: white;
+	border-radius: 5px;
+}
+button:hover {
+	background: #017373;
+}
+.error {
+    color: tomato !important;
+}
