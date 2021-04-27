@@ -1,6 +1,6 @@
 <?php 
 	$dbname = "penjualan_0163";
-	$tablename = "pesan";
+	$tabelPesan = "pesan";
 	
 	$conn = mysqli_connect("localhost", "root", "", $dbname);
 	
@@ -8,3 +8,4 @@
 		echo "Koneksi Error";	
 	}
 ?>
+

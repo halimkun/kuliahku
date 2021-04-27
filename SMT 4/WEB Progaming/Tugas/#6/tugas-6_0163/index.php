@@ -1,9 +1,10 @@
 <?php 
 	include 'config.php';
 
-	$sql = "SELECT * FROM $tablename";
+	$sql = "SELECT * FROM $tabelPesan ORDER BY tanggal_masuk DESC";
 	$hasil = mysqli_query($conn, $sql);
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,11 +28,11 @@
 				<thead>
 					<tr>
 						<th>kode</th>
-						<th>nama</th>
-						<th>tgl masuk</th>
+						<th style="width: 15%;">nama</th>
+						<th style="width: 10%;">tgl masuk</th>
 						<th>email</th>
 						<th>subject</th>
-						<th>pesan</th>
+						<th style="width: 35%;">pesan</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -56,5 +57,7 @@
 		</center>
 		<a href="./insert.php" class="btn btn-dark float-end">Tambah Data</a>
 	</div>
+	<div style="margin-bottom:150px;"></div>
+	<div class="clear"></div>
 </body>
 </html>
