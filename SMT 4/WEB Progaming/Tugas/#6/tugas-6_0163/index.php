@@ -2,7 +2,7 @@
 	include 'config.php';
 
 	$sql = "SELECT * FROM $tablename";
-	$hasil = $conn->query($sql);
+	$hasil = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,7 +23,7 @@
 		</div>
 		</div>
 		<center>
-			<table class="mt-5 table table-bordered table-striped table-hover">
+			<table class="mt-3 table table-bordered table-striped table-hover">
 				<thead>
 					<tr>
 						<th>kode</th>
@@ -38,12 +38,12 @@
 				<?php if($hasil->num_rows > 0) : ?>
 					<?php foreach ($hasil as $key => $val) : ?>
 						<tr>
-						<td><?= $val['kode_pesan'] ?></td>
-						<td><?= $val['nama'] ?></td>
-						<td><?= $val['tanggal_masuk'] ?></td>
-						<td><?= $val['email'] ?></td>
-						<td><?= $val['subject'] ?></td>
-						<td><?= $val['pesan'] ?></td>
+							<td><?= $val['kode_pesan'] ?></td>
+							<td><?= $val['nama'] ?></td>
+							<td><?= $val['tanggal_masuk'] ?></td>
+							<td><?= $val['email'] ?></td>
+							<td><?= $val['subject'] ?></td>
+							<td><?= $val['pesan'] ?></td>
 						</tr>
 					<?php endforeach; ?>
 				<?php else : ?>

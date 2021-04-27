@@ -8,11 +8,10 @@
 		$subject = $_POST["subject"];
 		$pesan = $_POST["pesan"];
 
-		$sql = "INSERT INTO pesan VALUES(NULL, '$nama', '$tgl_masuk', '$email', '$subject', '$pesan')";
+		$sql = "INSERT INTO pesan VALUES (NULL, '$nama', '$tgl_masuk', '$email', '$subject', '$pesan')";
 		
-		// mysqli_query($conn, $sql);
-
-		if ($conn->query($sql) === TRUE) {
+		mysqli_query($conn, $sql);
+		if (mysqli_affected_rows($conn) > 0) {
 			header("Location: index.php");
 		} else {
 			echo "INPUT GAGAL " . mysqli_error($conn);
@@ -31,6 +30,14 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta http-equiv="X-UA-Compatible" content="IE=7">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<style>
+		.form-content {
+			margin: auto;
+			max-width: 50%;
+		}
+	</style>
+
 </head>
 <body>
 	<div class="p-5 mb-4 bg-light">
@@ -40,7 +47,7 @@
       </div>
     </div>
 	<div class="container">
-		<div class="mt-2">
+		<div class="form-content mt-3">
 			<form action="" method="post" autocomplete="off">
 				<label for="nama">Nama : </label>
 				<input class="form-control mb-2" required placeholder="Nama anda" type="text" name="nama" id="nama">
