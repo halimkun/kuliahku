@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "televisi",
+            "database": "${workspaceFolder:uas_mobile_0163}/lib/televisi.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

@@ -1,5 +1,12 @@
+import 'dart:io';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart';
+
+import 'package:uas_mobile_0163/data_model.dart';
+import 'package:uas_mobile_0163/database_model.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Input Data Televisi 0163',
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+        primarySwatch: Colors.green,
       ),
       home: MyHomePage(title: 'Input Data Televisi 0163'),
     );
@@ -35,6 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final tinggilayar = TextEditingController();
   final lebarlayar = TextEditingController();
 
+  DatabaseModel dbmodel = DatabaseModel();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -125,35 +134,36 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(height: 10),
                 ElevatedButton(
                   child: Text("Tampilkan Data"),
-                  onPressed: () {
-                    return showDialog<String>(
-                      context: context,
-                      builder: (BuildContext context) => AlertDialog(
-                        title: Text("Detail Televisi"),
-                        content: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Text("Merek Televisi : " + mrktv.text),
-                            Text("Seri Televisi : " + seritv.text),
-                            Text("Tipe Layar : " + tipelayar.text),
-                            Text("Ukuran Layar : " +
-                                ukuranlayar.text +
-                                "inch"),
-                            Text("Resolusi Layar : " +
-                                tinggilayar.text +
-                                " x " +
-                                lebarlayar.text),
-                          ],
-                        ),
-                        actions: <Widget>[
-                          TextButton(
-                            onPressed: () =>
-                              Navigator.pop(context, "Ok"),
-                              child: Text("Ok"))
-                        ],
-                      )
-                    );
+                  onPressed: () async {
+                    await _addItem();
+                    // return showDialog<String>(
+                    //   context: context,
+                    //   builder: (BuildContext context) => AlertDialog(
+                    //     title: Text("Detail Televisi"),
+                    //     content: Column(
+                    //       crossAxisAlignment: CrossAxisAlignment.stretch,
+                    //       mainAxisSize: MainAxisSize.min,
+                    //       children: <Widget>[
+                    //         Text("Merek Televisi : " + mrktv.text),
+                    //         Text("Seri Televisi : " + seritv.text),
+                    //         Text("Tipe Layar : " + tipelayar.text),
+                    //         Text("Ukuran Layar : " +
+                    //             ukuranlayar.text +
+                    //             "inch"),
+                    //         Text("Resolusi Layar : " +
+                    //             tinggilayar.text +
+                    //             " x " +
+                    //             lebarlayar.text),
+                    //       ],
+                    //     ),
+                    //     actions: <Widget>[
+                    //       TextButton(
+                    //         onPressed: () =>
+                    //           Navigator.pop(context, "Ok"),
+                    //           child: Text("Ok"))
+                    //     ],
+                    //   )
+                    // );
                   },
                 )
               ],
@@ -163,4 +173,17 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
+
+  Future<void> _addItem() async {
+  await DatabaseModel.createItems(
+    mrktv.text, 
+    seritv.text, 
+    tipelayar.text, 
+    ukuranlayar.text, 
+    tinggilayar.text, 
+    lebarlayar.text);
+  }
+
+
 }
